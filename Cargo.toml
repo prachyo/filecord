@@ -1,0 +1,7 @@
+[dependencies]
+actix-web = "4.0"       # Web framework for building APIs
+serenity = "0.11"       # Discord API library
+tokio = { version = "1", features = ["full"] }
+dotenv = "0.15"
+log = "0.4"
+env_logger = "0.9"
