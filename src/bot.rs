@@ -12,11 +12,16 @@ impl EventHandler for Handler {
     }
 }
 
-pub async fn create_user_channel(ctx: &Context, user_id: UserId) -> Result<(), serenity::Error> {
+pub async fn create_user_channel(user_id: u64) -> Result<(), serenity::Error> {
+    // Convert user_id to UserId for Serenity
+    let discord_user_id = UserId(user_id);
     let guild_id = GuildId(env::var("DISCORD_GUILD_ID").unwrap().parse().unwrap());
-    let user_channel_name = format!("user-{}", user_id);
 
-    guild_id.create_channel(&ctx.http, |c| c.name(&user_channel_name)).await?;
+    // Channel name based on the user ID
+    let user_channel_name = format!("user-{}", discord_user_id);
+
+    // Create the channel in the specified guild/server
+    guild_id.create_channel(&discord_user_id.http(), |c| c.name(&user_channel_name)).await?;
     Ok(())
 }
 
