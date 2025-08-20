@@ -1,0 +1,17 @@
+[package]
+name = "filecord-discord"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+reqwest = { workspace = true }
+tracing = { workspace = true }
+governor = { workspace = true }
+uuid = { workspace = true }
+time = { workspace = true }
+urlencoding = { workspace = true }

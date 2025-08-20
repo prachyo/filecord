@@ -1,0 +1,20 @@
+[package]
+name = "filecord-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+base64 = { workspace = true }
+blake3 = { workspace = true }
+sha2 = { workspace = true }
+zstd = { workspace = true }
+chacha20poly1305 = { workspace = true }
+rand = { workspace = true }
+hex = { workspace = true }
+time = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }

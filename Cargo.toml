@@ -1,9 +1,40 @@
-[dependencies]
-actix-web = "4.0"       # Web framework for building APIs
-serenity = "0.11"       # Discord API library
-tokio = { version = "1", features = ["full"] }
-dotenv = "0.15"
-log = "0.4"
-env_logger = "0.9"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+[workspace]
+members = [
+    "crates/core",
+    "crates/discord",
+    "crates/fsindex",
+    "crates/cli",
+    "crates/server"
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["prachyo <prachyosarker565@gmail.com>"]
+rust-version = "1.74"
+
+[workspace.dependencies]
+anyhow = "1"
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "sync", "time"] }
+reqwest = { version = "0.12", features = ["json", "gzip", "brotli", "zstd", "stream", "multipart", "rustls-tls"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4", features = ["derive"] }
+base64 = "0.22"
+blake3 = "1"
+sha2 = "0.10"
+zstd = { version = "0.13", features = ["pkg-config"] }
+chacha20poly1305 = { version = "0.10", features = ["std", "getrandom", "xchacha20"] }
+rand = "0.8"
+hex = "0.4"
+time = { version = "0.3", features = ["formatting"] }
+urlencoding = "2"
+governor = "0.6"
+axum = "0.7"
+tower = "0.5"
+dotenvy = "0.15"
+uuid = { version = "1", features = ["v4"] }
